@@ -7,6 +7,7 @@ import databaseConnection from './database/connection'
 
 const app = express()
 app.use(express.json())
+// app.use(express)
 const PORT = appConfig.port
 app.use("/v1",appRoutes)
 //Base URL 

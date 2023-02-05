@@ -10,6 +10,7 @@ const connection_1 = __importDefault(require("./database/connection"));
 // Express app
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
+// app.use(express)
 const PORT = config_1.appConfig.port;
 app.use("/v1", routes_1.default);
 //Base URL 

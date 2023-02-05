@@ -1,6 +1,7 @@
 import { Router } from "express";
 import authRoutes from "./auth";
 import notesRoutes from "./notes";
+import mediaRoutes from "./media";
 
  const appRoutes = Router()
 
@@ -9,5 +10,7 @@ import notesRoutes from "./notes";
 appRoutes.use("/auth",  authRoutes)
 //Notes CRUD end points
 appRoutes.use("/notes",  notesRoutes)
+// Media related routes 
+appRoutes.use("/media",mediaRoutes)
 
 export default appRoutes

@@ -6,10 +6,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const auth_1 = __importDefault(require("./auth"));
 const notes_1 = __importDefault(require("./notes"));
+const media_1 = __importDefault(require("./media"));
 const appRoutes = (0, express_1.Router)();
 //Register post request will be handled here
 //Added registervalidator as middleware to validate required body
 appRoutes.use("/auth", auth_1.default);
 //Notes CRUD end points
 appRoutes.use("/notes", notes_1.default);
+// Media related routes 
+appRoutes.use("/media", media_1.default);
 exports.default = appRoutes;

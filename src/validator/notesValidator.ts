@@ -1,11 +1,15 @@
 import { NextFunction,Request,Response } from "express";
-import { body, query, validationResult } from "express-validator";
-
+import { body, query, validationResult  } from "express-validator";
+import * as validator  from 'validator'
 export const noteValidator=[
     body("title").isString().withMessage("Title should be of alpha nemeric value"),
     body("description").isString(),
     body("images").isArray() .custom((val:Array<string>,{req})=>{
         // TODO will add check if passed should be a valid image URL
+        val.forEach(e=>{
+            const flag = validator.default.isURL(e)
+            if(!flag) throw new Error("Image url is not valid")
+        })
         return true 
     }),
     async(req:Request,res:Response,next:NextFunction)=>{
